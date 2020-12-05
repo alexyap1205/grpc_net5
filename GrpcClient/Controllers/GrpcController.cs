@@ -16,6 +16,7 @@ namespace GrpcClient.Controllers
         }
         
         // GET
+        [HttpGet]
         public async Task<HelloReply> Index()
         {
             return await this._proxy.InvokeAsync();
