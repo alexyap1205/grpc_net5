@@ -13,5 +13,6 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
 COPY --from=build-env /app/out .
-EXPOSE 80
+ENV ASPNETCORE_URLS=http://+:50051
+EXPOSE 8080
 ENTRYPOINT ["dotnet", "GrpcGreeter.dll"]

@@ -12,10 +12,10 @@ namespace GrpcClient.Services
 
         public async Task<HelloReply> InvokeAsync()
         {
-            using var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            using var channel = GrpcChannel.ForAddress("https://grpc-server.alexanderyap.net:50051");
             var client =  new Greeter.GreeterClient(channel);
             var reply = await client.SayHelloAsync(
-                new HelloRequest { Name = "GreeterClient" });
+                new HelloRequest { Name = "Melbourne" });
             return reply;
         }
     }
